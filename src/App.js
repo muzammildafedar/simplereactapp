@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import Map from './comp/Map'
+import Login from './comp/login/login'
+import User from './comp/userInfo/User'
+import UserProfile from './comp/UserProfile';
+import { Navigate } from 'react-router-dom';
+import Header from './comp/header'
 
-function App() {
+
+import {
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
+
+ function App(){
+   if (UserProfile.getName().toString() == ""){
+    
+    return (
+<Navigate
+         to="/login" 
+      />);
+} else {
+  const name = UserProfile.getName().toString(); 
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    <div className="MyApp">
+        
+
+      Welcome {name}
+      {/* <Login/> */}
+    </div >
+    
+  
+)
+
 }
 
-export default App;
+
+
+  
+}
+export default App
